@@ -9,13 +9,27 @@
   - We use the dedicated "state updater" to schedule a state change: `setHealthPoints(healthPoints + 1)`
 */
 
-import React from 'react'
+import React, { useState } from 'react'
+
 
 function Playground(props) {
-  return (
-    <h1>Playground</h1>
+  const [count, setCount] = useState(0);
 
-  )
+	const countPlus = (evt) => {
+		setCount(count + 1);
+	};
+	const countMinus = (evt) => {
+		setCount(count - 1);
+	};
+  
+  return (
+		<div>
+			<h1>Playground</h1>
+      <p>Current Count: {count}</p>
+			<button onClick={countPlus}>Plus</button>
+			<button onClick={countMinus}>Minus</button>
+		</div>
+	);
 }
 
 export default Playground;
